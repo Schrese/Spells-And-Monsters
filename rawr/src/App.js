@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
-import MonsterList from './Components/MonstersList';
+
+//components
+import CombineAxios from './Components/CombineAxios';
 
 function App() {
   return (
     <div className="App">
-      <MonsterList />
+      <CombineAxios />
     </div>
   );
 }
