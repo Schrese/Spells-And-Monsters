@@ -6,6 +6,7 @@ import axios from 'axios';
 //components
 import MonstersList from './Components/MonstersList';
 import NavBar from './Components/NavBar';
+import MonsterActions from './Components/MonsterCard';
 import MonsterCard from './Components/MonsterCard';
 import EasyNavigation from './Components/EasyNavigation';
 
@@ -32,12 +33,22 @@ function App() {
         exact
         path="/monsters/:slug"
         render={props => (
-          <MonsterCard
-            {...props} 
+          <MonsterCard 
+            {...props}
             monsters={monsters}
           />
         )}
       />
+      <Route 
+        exact 
+        path="/monsters/:slug"
+        render={props => (
+          <MonsterActions 
+            {...props}
+            monsters={monsters}
+          />
+        )}
+        />
 
         <Route
         exact
