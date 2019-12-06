@@ -36,7 +36,6 @@ function MonsterCard(props) {
             <p>Damage Vulnerabilities: {monster.damage_vulnerabilities}</p>
             <p>Dexterity: {monster.dexterity}</p>
             <p>Dexterity Save: {monster.dexterity_save}</p>
-            <p>License URL: {monster.document__license_url}</p>
             <p>Slug: {monster.document__slug}</p>
             <p>Origin Book: {monster.document__title}</p>
             <p>Group: {monster.group}</p>
