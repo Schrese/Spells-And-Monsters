@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import '../App.css';
 function MonstersList(props) {
-    // console.log(props);
+    console.log(props);
     function individualMonster(e, m) {
         e.preventDefault();
         props.history.push(`/monsters/${m.slug}`);
@@ -23,10 +23,14 @@ function MonstersList(props) {
                             <MonsterBack className = 'back-side' >
                                 <h2>{m.name}</h2>
                                 {/* <h4>Speed</h4> */}
-                                <p>Walking Speed: {m.speed.walk}</p>
+                                {m.speed.walk ? <p>Walking Speed: {m.speed.walk}</p> : null }
+                                {m.speed.climb ? <p>Climbing Speed: {m.speed.climb}</p> : null}
+                                {m.speed.fly ? <p>Flying Speed: {m.speed.fly}</p> : null}
+                                {m.speed.swim ? <p>Swimming Speed: {m.speed.swim}</p> : null}
+                                {/* <p>Walking Speed: {m.speed.walk}</p>
                                 <p>Climbing Speed: {m.speed.climb}</p>
                                 <p>Flying Speed: {m.speed.fly}</p>
-                                <p>Swimming Speed: {m.speed.swim}</p>
+                                <p>Swimming Speed: {m.speed.swim}</p> */}
                             </MonsterBack>
                         </CardInner>
                     </MonsterContainer>
