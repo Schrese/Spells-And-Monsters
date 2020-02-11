@@ -45,6 +45,9 @@ function MonsterCard(props) {
             <p>Intelligence: {monster.intelligence}</p>
             <p>Intelligence Save: {monster.intelligence_save}</p>
             <p>Languages: {monster.languages}</p>
+            {/* {monster.legendary_actions ? (monster.legendary_actions.map(l => (
+                {}
+            )))} */}
             {/* <p>{monster.legendary_actions}</p> */}
             <p>Legendary Description: {monster.legendary_desc}</p>
             <p>Perception: {monster.perception}</p>
