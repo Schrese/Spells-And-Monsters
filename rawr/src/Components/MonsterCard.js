@@ -21,6 +21,8 @@ function MonsterCard(props) {
         <MonsterContainer key = {monster.index}>
             {/* <MonsterActions /> */}
             <h2>Name: {monster.name}</h2>
+            {monster.img_main ? <img src = {monster.img_main} alt = {`Image of ${monster.name}`} /> : null}
+            
             {/* figure out how to get actions in here */}
             <p>Alignment: {monster.alignment}</p>
             <p>Armor Class: {monster.armor_class}</p>
@@ -45,13 +47,15 @@ function MonsterCard(props) {
             <p>Intelligence: {monster.intelligence}</p>
             <p>Intelligence Save: {monster.intelligence_save}</p>
             <p>Languages: {monster.languages}</p>
-            {/* {monster.legendary_actions ? (monster.legendary_actions.map(l => (
-                {}
-            )))} */}
-            {/* <p>{monster.legendary_actions}</p> */}
+            {monster.legendary_actions ? (monster.legendary_actions.map(l => (
+                <div key = {l.name}>
+                    {/* <p>{l.name}</p> */}
+                    <p>{l.name}:{l.desc}</p>
+                </div>
+            ))) : null}
             <p>Legendary Description: {monster.legendary_desc}</p>
             <p>Perception: {monster.perception}</p>
-            <p>Reactions: {monster.reactions}</p>
+            {/* <p>Reactions: {monster.reactions}</p> */}
             <p>Senses: {monster.senses}</p>
             <p>Size: {monster.size}</p>
             {/* <p>{monster.skills}</p> */}
