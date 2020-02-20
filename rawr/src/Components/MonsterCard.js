@@ -10,10 +10,17 @@ function MonsterCard(props) {
     const monster = props.monsters.find(
         something => `${something.slug}` === props.match.params.slug
     );
+
+
     if(!props.monsters.length || !monster) {
         return <h2>...Loading Monster Data</h2>
     }
 
+    const modifier = (num) =>{
+        let newMod =  (num - 10)/2;
+        return Math.floor(newMod)
+    }
+    console.log(modifier(15))
     console.log(monster)
     // console.log('individual monster', monster);
 
@@ -21,12 +28,35 @@ function MonsterCard(props) {
         <MonsterContainer key = {monster.index}>
             {/* <MonsterActions /> */}
             <h2>Name: {monster.name}</h2>
-            {monster.img_main ? <img src = {monster.img_main} alt = {`Image of ${monster.name}`} /> : null}
+            {/* {monster.img_main ? <img src = {monster.img_main} alt = {`Image of ${monster.name}`} /> : null} */}
             
             {/* figure out how to get actions in here */}
-            <div classNaame = 'base-info'>
+            <div className = 'base-info'>
 
             </div>
+            {monster.subtype ? <p>{monster.size} {monster.type}({monster.subtype}), {monster.alignment}</p> : <p>{monster.size} {monster.type}, {monster.alignment}</p>}
+
+            {monster.armor_class ? <p>Armor Class: {monster.armor_class} ({monster.armor_desc})</p> : <p>Armor Class: {monster.armor_class}</p>}
+            <p>Hit Points: {monster.hit_points} ({monster.hit_dice})</p>
+            <Speed>{monster.speed.walk ? <p>Speed: {monster.speed.walk}ft.,</p> : null} {monster.speed.swim ? <p>swim {monster.speed.swim}ft.,</p> : null} {monster.speed.climb ? <p>climb {monster.speed.climb}ft.,</p> : null } {monster.speed.fly ? <p>fly {monster.speed.fly}ft.</p> : null}</Speed>
+            
+            //continue working from here next time
+            <p>Wisdom: {monster.wisdom}({modifier(monster.dexterity)})</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            {/* base stats, just to get them on the page, above is actual format */}
             <p>Alignment: {monster.alignment}</p>
             <p>Armor Class: {monster.armor_class}</p>
             <p>Armor Description: {monster.armor_desc}</p>
@@ -92,5 +122,13 @@ const MonsterContainer = styled.div`
     h2{
         color: red;
         font-size: 4rem;
+    }
+`
+
+const Speed = styled.div`
+    display: flex;
+    justify-content: center;
+    p{
+        padding: 0.2%;
     }
 `
