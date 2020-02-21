@@ -18,7 +18,12 @@ function MonsterCard(props) {
 
     const modifier = (num) =>{
         let newMod =  (num - 10)/2;
-        return Math.floor(newMod)
+        let rounded = Math.floor(newMod)
+        if(rounded >= 0) {
+            return `+${rounded}`
+        } else {
+            return rounded
+        }
     }
     console.log(modifier(15))
     console.log(monster)
@@ -38,11 +43,52 @@ function MonsterCard(props) {
 
             {monster.armor_class ? <p>Armor Class: {monster.armor_class} ({monster.armor_desc})</p> : <p>Armor Class: {monster.armor_class}</p>}
             <p>Hit Points: {monster.hit_points} ({monster.hit_dice})</p>
-            <Speed>{monster.speed.walk ? <p>Speed: {monster.speed.walk}ft.,</p> : null} {monster.speed.swim ? <p>swim {monster.speed.swim}ft.,</p> : null} {monster.speed.climb ? <p>climb {monster.speed.climb}ft.,</p> : null } {monster.speed.fly ? <p>fly {monster.speed.fly}ft.</p> : null}</Speed>
             
-            //continue working from here next time
-            <p>Wisdom: {monster.wisdom}({modifier(monster.dexterity)})</p>
+            <Speed>{monster.speed.walk ? <p>Speed: {monster.speed.walk}ft.,</p> : null} {monster.speed.swim ? <p>swim {monster.speed.swim}ft.,</p> : null} {monster.speed.climb ? <p>climb {monster.speed.climb}ft.,</p> : null } {monster.speed.fly ? <p>fly {monster.speed.fly}ft.</p> : null}</Speed>
 
+            //continue working from here next time
+            <Stats>
+                <Stat>
+                    <p>STR</p>
+                    <p>{monster.strength}({modifier(monster.strength)})</p>
+                </Stat>
+                <Stat>
+                    <p>DEX</p>
+                    <p>{monster.dexterity}({modifier(monster.dexterity)})</p>
+
+                </Stat>
+                <Stat>
+                    <p>CON</p>
+                    <p>{monster.constitution}({modifier(monster.constitution)})</p>
+
+                </Stat>
+                <Stat>
+                    <p>INT</p>
+                    <p>{monster.intelligence}({modifier(monster.intelligence)})</p>
+                </Stat>
+                <Stat>
+                    <p>WIS</p>
+                    <p>{monster.wisdom}({modifier(monster.wisdom)})</p>
+                </Stat>
+                <Stat>
+                    <p>CHA</p>
+                    <p>{monster.charisma}({modifier(monster.charisma)})</p>
+                </Stat>
+            </Stats>
+          
+            <SavingThrows>
+                <p>Saving Throws</p>
+                <div>
+                    {monster.strength_save ? <p>STR +{monster.strength_save},</p> : null}
+                    {monster.dexterity_save ? <p>DEX +{monster.dexterity_save},</p> : null}
+                    {monster.constitution_save ? <p>CON +{monster.constitution_save},</p> : null}
+                    {monster.intelligence_save ? <p>INT +{monster.intelligence_save},</p> : null}
+                    {monster.wisdom_save ? <p>WIS +{monster.wisdom_save},</p> : null}
+                    {monster.charisma_save ? <p>CHA +{monster.charisma_save}</p> : null}
+
+                </div>
+            </SavingThrows>
+            
 
 
 
@@ -130,5 +176,28 @@ const Speed = styled.div`
     justify-content: center;
     p{
         padding: 0.2%;
+    }
+`
+
+const Stats = styled.div`
+    display: flex;
+    justify-content: center;
+`
+
+const Stat = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 5%;
+    line-height: 0.2rem;
+`
+
+const SavingThrows = styled.div`
+    display: flex;
+    justify-content: center;
+
+    div {
+        display: flex;
+
+        
     }
 `
