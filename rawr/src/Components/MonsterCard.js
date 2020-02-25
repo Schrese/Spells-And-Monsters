@@ -88,7 +88,12 @@ function MonsterCard(props) {
 
                 </div>
             </SavingThrows>
-            
+            {monster.special_abilities.map(special => (
+                <div key = {special.name}>
+                    <p>{special.name}</p>
+                    <p>{special.desc}</p>
+                </div>
+            ))}            
 
 
 
