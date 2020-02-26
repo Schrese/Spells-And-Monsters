@@ -16,6 +16,7 @@ function MonsterCard(props) {
         return <h2>...Loading Monster Data</h2>
     }
 
+    //creates modifiers for base stats
     const modifier = (num) =>{
         let newMod =  (num - 10)/2;
         let rounded = Math.floor(newMod)
@@ -25,9 +26,84 @@ function MonsterCard(props) {
             return rounded
         }
     }
-    console.log(modifier(15))
-    console.log(monster)
+    // console.log(modifier(15))
+    // console.log(monster)
     // console.log('individual monster', monster);
+
+    //creates xp amount for each challenge rating
+    const xpAmt = (cr) => {
+        if (cr = 0) {
+            return "10"
+        } else if (cr = 1/8) {
+            return "25"
+        } else if (cr = 1/4) {
+            return "50"
+        } else if (cr = 1/2) {
+            return "100"
+        } else if (cr = 1) {
+            return "200"
+        } else if (cr = 2) {
+            return "450"
+        } else if (cr = 3) {
+            return "700"
+        } else if (cr = 4) {
+            return "1,100"
+        } else if (cr = 5) {
+            return "1,800"
+        } else if (cr = 6) {
+            return "2,300"
+        } else if (cr = 7) {
+            return "2,900"
+        } else if (cr = 8) {
+            return "3,900"
+        } else if (cr = 9) {
+            return "5,000"
+        } else if (cr = 10) {
+            return "5,900"
+        } else if (cr = 11) {
+            return "7,200"
+        } else if (cr = 12) {
+            return "8,400"
+        } else if (cr = 13) {
+            return "10,000"
+        } else if (cr = 14) {
+            return "11,500"
+        } else if (cr = 15) {
+            return "13,000"
+        } else if (cr = 16) {
+            return "15,000"
+        } else if (cr = 17) {
+            return "18,000"
+        } else if (cr = 18) {
+            return "20,000"
+        } else if (cr = 19) {
+            return "22,000"
+        } else if (cr = 20) {
+            return "25,000"
+        } else if (cr = 21) {
+            return "33,000"
+        } else if (cr = 22) {
+            return "41,000"
+        } else if (cr = 23) {
+            return "50,000"
+        } else if (cr = 24) {
+            return "62,000"
+        } else if (cr = 25) {
+            return "75,000"
+        } else if (cr = 26) {
+            return "90,000"
+        } else if (cr = 27) {
+            return "105,000"
+        } else if (cr = 28) {
+            return "120,000"
+        } else if (cr = 29) {
+            return "135,000"
+        } else if (cr = 30) {
+            return "155,000"
+        } else {
+            return "unknown XP amount"
+        }
+    } 
 
     return(
         <MonsterContainer key = {monster.index}>
@@ -109,6 +185,15 @@ function MonsterCard(props) {
                 {monster.skills.stealth ? <p>History +{monster.skills.stealth}</p> : null}
                 {monster.skills.survival ? <p>History +{monster.skills.survival}</p> : null}
                 
+            </div>
+            <div>
+                <p>Senses: {monster.senses}</p>
+            </div>
+            <div>
+                <p>Languages: {monster.languages}</p>
+            </div>
+            <div>
+                <p>Challenge: {monster.challenge_rating}({xpAmt(monster.challenge_rating)}xp)</p>
             </div>
             {monster.special_abilities.map(special => (
                 <div key = {special.name}>
