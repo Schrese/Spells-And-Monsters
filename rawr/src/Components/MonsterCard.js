@@ -88,6 +88,28 @@ function MonsterCard(props) {
 
                 </div>
             </SavingThrows>
+            <div>
+                <h3>Skills</h3>
+                {monster.skills.acrobatics ? <p>History +{monster.skills.acrobatics}</p> : null}
+                {monster.skills.animal_handling ? <p>History +{monster.skills.animal_handling}</p> : null}
+                {monster.skills.arcana ? <p>History +{monster.skills.arcana}</p> : null}
+                {monster.skills.athletics ? <p>History +{monster.skills.athletics}</p> : null}
+                {monster.skills.deception ? <p>History +{monster.skills.deception}</p> : null}
+                {monster.skills.history ? <p>History +{monster.skills.history}</p> : null}
+                {monster.skills.insight ? <p>History +{monster.skills.insight}</p> : null}
+                {monster.skills.intimidation ? <p>History +{monster.skills.intimidation}</p> : null}
+                {monster.skills.investigation ? <p>History +{monster.skills.investigation}</p> : null}
+                {monster.skills.medicine ? <p>History +{monster.skills.medicine}</p> : null}
+                {monster.skills.nature ? <p>History +{monster.skills.nature}</p> : null}
+                {monster.skills.perception ? <p>History +{monster.skills.perception}</p> : null}
+                {monster.skills.performance ? <p>History +{monster.skills.performance}</p> : null}
+                {monster.skills.persuasion ? <p>History +{monster.skills.persuasion}</p> : null}
+                {monster.skills.religion ? <p>History +{monster.skills.religion}</p> : null}
+                {monster.skills.sleight_of_hand ? <p>History +{monster.skills.sleight_of_hand}</p> : null}
+                {monster.skills.stealth ? <p>History +{monster.skills.stealth}</p> : null}
+                {monster.skills.survival ? <p>History +{monster.skills.survival}</p> : null}
+                
+            </div>
             {monster.special_abilities.map(special => (
                 <div key = {special.name}>
                     <p>{special.name}</p>
@@ -95,7 +117,7 @@ function MonsterCard(props) {
                 </div>
             ))}            
 
-
+            
 
 
 
