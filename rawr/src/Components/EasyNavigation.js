@@ -15,7 +15,7 @@ const EasyNavigation = () => {
                 <Buttons>Home</Buttons>
             </Link>
             <Link to = '/monsters/slug'>
-                <Buttons>Monster Card</Buttons>
+                <Button>Monster Card</Button>
             </Link>
         </EasyContainer>
     )
