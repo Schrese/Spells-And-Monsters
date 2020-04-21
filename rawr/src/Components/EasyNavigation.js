@@ -9,14 +9,13 @@ const EasyNavigation = () => {
     return(
         <EasyContainer>
             <Link to= '/monster-list' >
-                <Button>MonsterList</Button>
+                <Buttons>MonsterList</Buttons>
             </Link>
             <Link to = '/'>
-                <Button>Home</Button>
+                <Buttons>Home</Buttons>
             </Link>
             <Link to = '/monsters/slug'>
                 <Button>Monster Card</Button>
-                <Button>Making a merge conflict</Button>
             </Link>
         </EasyContainer>
     )
@@ -35,7 +34,7 @@ const EasyContainer = styled.div`
     align-items: center;
 `
 
-const Button = styled.button`
+const Buttons = styled.button`
     text-decoration: none;
     background: purple;
     width: 150px;

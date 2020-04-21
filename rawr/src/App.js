@@ -6,8 +6,8 @@ import axios from 'axios';
 //components
 import MonstersList from './Components/MonstersList';
 import NavBar from './Components/NavBar';
-import MonsterActions from './Components/MonsterCard';
-import MonsterCard from './Components/MonsterCard';
+import MonsterActions from './Components/FullStats/MonsterCard';
+import MonsterCard from './Components/FullStats/MonsterCard';
 import EasyNavigation from './Components/EasyNavigation';
 
 function App() {
