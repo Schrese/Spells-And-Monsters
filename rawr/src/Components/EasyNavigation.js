@@ -16,6 +16,7 @@ const EasyNavigation = () => {
             </Link>
             <Link to = '/monsters/slug'>
                 <Button>Monster Card</Button>
+                <Button>Making a merge conflict</Button>
             </Link>
         </EasyContainer>
     )
